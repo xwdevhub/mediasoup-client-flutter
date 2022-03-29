@@ -189,7 +189,8 @@ class UnifiedPlan extends HandlerInterface {
       mid: localId,
       kind: options.kind,
       offerRtpParameters: options.rtpParameters,
-      streamId: options.rtpParameters.rtcp!.cname,
+      // streamId: options.rtpParameters.rtcp!.cname,
+      streamId: '${options.rtpParameters.rtcp!.cname}_${options.trackId}',
       trackId: options.trackId,
     );
 
@@ -249,7 +250,9 @@ class UnifiedPlan extends HandlerInterface {
 
     final MediaStream? stream = _pc!
         .getRemoteStreams()
-        .firstWhereOrNull((e) => e?.id == options.rtpParameters.rtcp!.cname);
+        // .firstWhereOrNull((e) => e?.id == options.rtpParameters.rtcp!.cname);
+        .firstWhereOrNull((e) =>
+            e?.id == '${options.rtpParameters.rtcp!.cname}_${options.trackId}');
 
     if (stream == null) {
       throw ('Stream not found');
@@ -486,7 +489,8 @@ class UnifiedPlan extends HandlerInterface {
   Future<HandlerSendResult> send(HandlerSendOptions options) async {
     _assertSendRirection();
 
-    _logger.debug('send() [kind:${options.track.kind}, track.id:${options.track.id}');
+    _logger.debug(
+        'send() [kind:${options.track.kind}, track.id:${options.track.id}');
 
     if (options.encodings.length > 1) {
       int idx = 0;
