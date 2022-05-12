@@ -98,7 +98,7 @@ packages:
       name: dart_webrtc
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.5"
+    version: "1.0.6"
   events2:
     dependency: "direct main"
     description:
@@ -141,11 +141,11 @@ packages:
     dependency: "direct main"
     description:
       path: "."
-      ref: bc14539f610cb67bf4f5fa75e2e89f66151ab60d
-      resolved-ref: bc14539f610cb67bf4f5fa75e2e89f66151ab60d
+      ref: HEAD
+      resolved-ref: "31fe5a490a8552c25d64d16b7a3e27bd4cb3dad3"
       url: "https://github.com/xwdevhub/flutter-webrtc.git"
     source: git
-    version: "0.8.5"
+    version: "0.8.6"
   frontend_server_client:
     dependency: transitive
     description:
@@ -486,7 +486,7 @@ packages:
       name: webrtc_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.3"
+    version: "1.0.4"
   win32:
     dependency: transitive
     description:
