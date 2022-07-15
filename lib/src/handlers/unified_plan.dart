@@ -201,6 +201,8 @@ class UnifiedPlan extends HandlerInterface {
 
     _logger.debug(
         'receive() | calling pc.setRemoteDescription() [offer:${offer.toMap()}]');
+    emit('@sdp',
+        'receive() | calling pc.setRemoteDescription() [offer:${offer.toMap()}]');
 
     await _pc!.setRemoteDescription(offer);
 
@@ -230,6 +232,8 @@ class UnifiedPlan extends HandlerInterface {
     }
 
     _logger.debug(
+        'receive() | calling pc.setLocalDescription() [answer:${answer.toMap()}]');
+    emit('sdp',
         'receive() | calling pc.setLocalDescription() [answer:${answer.toMap()}]');
 
     await _pc!.setLocalDescription(answer);
@@ -298,6 +302,8 @@ class UnifiedPlan extends HandlerInterface {
 
       _logger.debug(
           'receiveDataChannel() | calling pc.setRemoteDescription() [offer:${offer.toMap()}]');
+      emit('@sdp',
+          'receiveDataChannel() | calling pc.setRemoteDescription() [offer:${offer.toMap()}]');
 
       await _pc!.setRemoteDescription(offer);
 
@@ -311,6 +317,8 @@ class UnifiedPlan extends HandlerInterface {
       }
 
       _logger.debug(
+          'receiveDataChannel() | calling pc.setRemoteDescription() [answer: ${answer.toMap()}');
+      emit('@sdp',
           'receiveDataChannel() | calling pc.setRemoteDescription() [answer: ${answer.toMap()}');
 
       await _pc!.setLocalDescription(answer);
@@ -568,6 +576,8 @@ class UnifiedPlan extends HandlerInterface {
 
     _logger.debug(
         'send() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
+    emit('@sdp',
+        'send() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
 
     await _pc!.setLocalDescription(offer);
 
@@ -645,6 +655,8 @@ class UnifiedPlan extends HandlerInterface {
 
     _logger.debug(
         'send() | calling pc.setRemoteDescription() [answer:${answer.toMap()}]');
+    emit('@sdp',
+        'send() | calling pc.setRemoteDescription() [answer:${answer.toMap()}]');
 
     await _pc!.setRemoteDescription(answer);
 
@@ -701,6 +713,8 @@ class UnifiedPlan extends HandlerInterface {
 
       _logger.debug(
           'sendDataChannel() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
+      emit('@sdp',
+          'sendDataChannel() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
 
       await _pc!.setLocalDescription(offer);
 
@@ -710,6 +724,8 @@ class UnifiedPlan extends HandlerInterface {
           RTCSessionDescription(_remoteSdp.getSdp(), 'answer');
 
       _logger.debug(
+          'sendDataChannel() | calling pc.setRemoteDescription() [answer:${answer.toMap()}]');
+      emit('@sdp',
           'sendDataChannel() | calling pc.setRemoteDescription() [answer:${answer.toMap()}]');
 
       await _pc!.setRemoteDescription(answer);
@@ -815,6 +831,8 @@ class UnifiedPlan extends HandlerInterface {
 
     _logger.debug(
         'stopReceiving() | calling pc.setRemoteDescription() [offer:${offer.toMap()}');
+    emit('@sdp',
+        'stopReceiving() | calling pc.setRemoteDescription() [offer:${offer.toMap()}');
 
     await _pc!.setRemoteDescription(offer);
 
@@ -847,6 +865,8 @@ class UnifiedPlan extends HandlerInterface {
 
     _logger.debug(
         'stopSending() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
+    emit('@sdp',
+        'stopSending() | calling pc.setLocalDescription() [offer:${offer.toMap()}');
 
     await _pc!.setLocalDescription(offer);
 
@@ -854,6 +874,8 @@ class UnifiedPlan extends HandlerInterface {
         RTCSessionDescription(_remoteSdp.getSdp(), 'answer');
 
     _logger.debug(
+        'stopSending() | calling pc.setRemoteDescription() [answer:${answer.toMap()}');
+    emit('@sdp',
         'stopSending() | calling pc.setRemoteDescription() [answer:${answer.toMap()}');
 
     await _pc!.setRemoteDescription(answer);
