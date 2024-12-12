@@ -257,7 +257,7 @@ class Sctpmap {
 }
 
 class Rid {
-  final int id;
+  final String id;
   final String direction;
   final String? params;
 
